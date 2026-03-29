@@ -24,3 +24,22 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 100s linear infinite;
+    /* This makes the movement smooth on high-refresh screens */
+    will-change: transform; 
+  }
+
+  /* Optional: Pause on hover just like pro trading terminals */
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
